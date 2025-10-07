@@ -17,8 +17,7 @@ body {
 .sidebar {
   width: 220px;
   background-color: #ffffff;
-  border-right: 1px solid #e5e5e5;
-  padding: 2rem 1.5rem;
+/* border-right: 1px solid #e5e5e5; */  /* ← desactivado */  padding: 2rem 1.5rem;
   position: fixed;
   top: 0;
   left: 0;
