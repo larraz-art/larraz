@@ -17,7 +17,7 @@ body {
 .sidebar {
   width: 220px;
   background-color: #ffffff;
-/* border-right: 1px solid #e5e5e5; */  /* ← desactivado */  padding: 2rem 1.5rem;
+  padding: 2rem 1.5rem;
   position: fixed;
   top: 0;
   left: 0;
@@ -30,6 +30,7 @@ body {
   letter-spacing: 2px;
   color: #000;
   margin-bottom: 2rem;
+  cursor: pointer;
 }
 
 nav ul {
@@ -57,18 +58,16 @@ nav a:hover {
   width: 100%;
 }
 
-section {
-  margin-bottom: 4rem;
-}
-
-section h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
+/* ===== ESTILO PARA LA FOTO ===== */
+.foto {
+  width: 400px;
+  height: 300px;
+  background-color: #f2f2f2;
+  border: 2px dashed #0077b6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
   color: #0077b6;
-}
-
-section p {
-  max-width: 700px;
-  line-height: 1.6;
-  color: #555;
-}
+  margin-top: 1.5rem;
+  font-size: 1.2rem;
