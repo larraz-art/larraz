@@ -9,56 +9,21 @@
 <body>
   <!-- MENÚ LATERAL IZQUIERDO -->
   <aside class="sidebar">
-    <!-- Al hacer clic en LARRAZ, se vuelve a mostrar FOTO 1 -->
     <h1 class="logo" id="logo">LARRAZ</h1>
     <nav>
       <ul>
-        <li><a href="#" data-section="1">Sección 1</a></li>
-        <li><a href="#" data-section="2">Sección 2</a></li>
-        <li><a href="#" data-section="3">Sección 3</a></li>
-        <li><a href="#" data-section="4">Sección 4</a></li>
+        <li><a href="foto1.html" target="contenido">Sección 1</a></li>
+        <li><a href="foto2.html" target="contenido">Sección 2</a></li>
+        <li><a href="foto3.html" target="contenido">Sección 3</a></li>
+        <li><a href="foto4.html" target="contenido">Sección 4</a></li>
       </ul>
     </nav>
   </aside>
 
   <!-- CONTENIDO PRINCIPAL -->
   <main class="contenido">
-    <div id="display-area">
-      <div class="foto">
-        <p>FOTO 1</p>
-      </div>
-    </div>
+    <iframe src="foto0.html" name="contenido" id="contenido-frame" frameborder="0"></iframe>
   </main>
-
-  <script>
-    // === SCRIPT PARA CAMBIAR EL CONTENIDO DINÁMICAMENTE ===
-    const displayArea = document.getElementById('display-area');
-    const logo = document.getElementById('logo');
-    const links = document.querySelectorAll('nav a');
-
-    // Mostrar FOTO 1 al cargar
-    window.addEventListener('DOMContentLoaded', () => mostrarContenido('1'));
-
-    // Al hacer clic en LARRAZ → mostrar FOTO 1
-    logo.addEventListener('click', () => mostrarContenido('1'));
-
-    // Al hacer clic en cada enlace del menú
-    links.forEach(link => {
-      link.addEventListener('click', e => {
-        e.preventDefault();
-        const section = link.dataset.section;
-        mostrarContenido(section);
-      });
-    });
-
-    // Función que cambia el contenido según la sección
-    function mostrarContenido(num) {
-      displayArea.innerHTML = `
-        <div class="foto">
-          <p>FOTO ${num}</p>
-        </div>
-      `;
-    }
-  </script>
 </body>
 </html>
+
