@@ -2,10 +2,19 @@
 <html lang="es">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Panel de administración | LARRAZ</title>
   </head>
   <body>
-    <!-- ✅ Carga estable y segura de Netlify CMS -->
-<script src="https://unpkg.com/netlify-cms-app@^2.15.72/dist/netlify-cms.js"></script> 
-</body>
+    <!-- ✅ Carga estable de Netlify CMS -->
+    <script src="https://unpkg.com/netlify-cms-app@^2.15.72/dist/netlify-cms.js"></script>
+
+    <!-- ✅ Forzamos a usar config.json en lugar de config.yml -->
+    <script>
+      window.CMS_MANUAL_INIT = true;
+      window.initCMS({
+        config_path: "/admin/config.json",
+      });
+    </script>
+  </body>
 </html>
