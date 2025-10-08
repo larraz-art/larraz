@@ -2,10 +2,13 @@ backend:
   name: git-gateway
   branch: main
 
-media_folder: "images/galeria"
-public_folder: "/images/galeria"
+media_folder: "images/galeria"       # Carpeta donde se guardan las imágenes
+public_folder: "/images/galeria"     # Ruta pública para mostrarlas en la web
 
 collections:
+  # =============================
+  # Configuración del sitio (Logo)
+  # =============================
   - name: "configuracion"
     label: "Configuración del sitio"
     files:
@@ -13,23 +16,28 @@ collections:
         label: "Logo"
         name: "logo"
         fields:
-          - {label: "Texto del logo", name: "texto", widget: "string"}
+          - { label: "Texto del logo", name: "texto", widget: "string" }
 
+  # =============================
+  # Secciones del portafolio
+  # =============================
   - name: "secciones"
     label: "Secciones del portafolio"
-    folder: "secciones"
-    create: true
-    slug: "{{slug}}"
+    folder: "secciones"       # Carpeta donde se guardan las secciones .md
+    create: true              # Permite crear nuevas secciones desde el panel
+    slug: "{{slug}}"          # Nombre del archivo .md
     format: "frontmatter"
     extension: "md"
     fields:
-      - {label: "Título de la sección", name: "title", widget: "string"}
-      - {label: "Fecha", name: "date", widget: "datetime"}
-      - {label: "Texto principal", name: "body", widget: "markdown"}
+      - { label: "Título de la sección", name: "title", widget: "string" }
+      - { label: "Fecha", name: "date", widget: "datetime" }
+      - { label: "Texto principal", name: "body", widget: "markdown" }
+
+      # Galería de imágenes para cada sección
       - label: "Galería"
         name: "gallery"
         widget: "list"
         allow_add: true
         fields:
-          - {label: "Imagen", name: "image", widget: "image"}
-          - {label: "Pie de foto", name: "caption", widget: "string"}
+          - { label: "Imagen", name: "image", widget: "image" }
+          - { label: "Pie de foto", name: "caption", widget: "string" }
