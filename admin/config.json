@@ -1,0 +1,48 @@
+{
+  "backend": {
+    "name": "git-gateway",
+    "branch": "main"
+  },
+  "media_folder": "images/galeria",
+  "public_folder": "/images/galeria",
+  "collections": [
+    {
+      "name": "configuracion",
+      "label": "Configuración del sitio",
+      "files": [
+        {
+          "file": "logo.json",
+          "label": "Logo",
+          "name": "logo",
+          "fields": [
+            { "label": "Texto del logo", "name": "texto", "widget": "string" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "secciones",
+      "label": "Secciones del portafolio",
+      "folder": "secciones",
+      "create": true,
+      "slug": "{{slug}}",
+      "format": "frontmatter",
+      "extension": "md",
+      "fields": [
+        { "label": "Título de la sección", "name": "title", "widget": "string" },
+        { "label": "Fecha", "name": "date", "widget": "datetime" },
+        { "label": "Texto principal", "name": "body", "widget": "markdown" },
+        {
+          "label": "Galería",
+          "name": "gallery",
+          "widget": "list",
+          "allow_add": true,
+          "fields": [
+            { "label": "Imagen", "name": "image", "widget": "image" },
+            { "label": "Pie de foto", "name": "caption", "widget": "string" }
+          ]
+        }
+      ]
+    }
+  ]
+}
