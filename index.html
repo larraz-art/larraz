@@ -7,63 +7,21 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- MENÚ LATERAL IZQUIERDO -->
   <aside class="sidebar">
     <h1 class="logo" id="logo">LARRAZ</h1>
     <nav>
-      <ul>
-        <li><a href="foto1.html" data-section="foto1.html">Sección 1</a></li>
-        <li><a href="foto2.html" data-section="foto2.html">Sección 2</a></li>
-        <li><a href="foto3.html" data-section="foto3.html">Sección 3</a></li>
-        <li><a href="foto4.html" data-section="foto4.html">Sección 4</a></li>
+      <ul id="menu-secciones">
+        <!-- Las secciones creadas en /secciones se cargarán automáticamente -->
       </ul>
     </nav>
   </aside>
 
-  <!-- CONTENIDO PRINCIPAL -->
   <main class="contenido">
     <iframe id="contenido-frame" src="foto0.html" frameborder="0"></iframe>
   </main>
 
-  <script>
-    const frame = document.getElementById('contenido-frame');
-    const links = document.querySelectorAll('nav a');
-    const logo = document.getElementById('logo');
-
-    // Cargar la página correcta según la URL actual
-    function cargarDesdeURL() {
-      const path = window.location.pathname.split('/').pop();
-      if (path && path.startsWith('foto') && path.endsWith('.html')) {
-        frame.src = path;
-      } else {
-        frame.src = 'foto0.html';
-        window.history.replaceState({}, '', 'foto0.html');
-      }
-    }
-
-    // Cambiar el contenido y la URL sin recargar
-    function cambiarSeccion(ruta) {
-      frame.src = ruta;
-      window.history.pushState({}, '', ruta);
-    }
-
-    // Clic en el logo → volver a foto0.html
-    logo.addEventListener('click', () => cambiarSeccion('foto0.html'));
-
-    // Clic en enlaces de menú
-    links.forEach(link => {
-      link.addEventListener('click', e => {
-        e.preventDefault();
-        const ruta = link.dataset.section;
-        cambiarSeccion(ruta);
-      });
-    });
-
-    // Escuchar cambios en el historial (navegación del navegador)
-    window.addEventListener('popstate', cargarDesdeURL);
-
-    // Cargar correctamente al abrir
-    window.addEventListener('DOMContentLoaded', cargarDesdeURL);
-  </script>
+  <!-- Librerías -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="main.js"></script>
 </body>
 </html>
