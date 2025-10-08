@@ -1,6 +1,4 @@
-/* ================================
-   ESTILOS GENERALES
-================================ */
+/* ===== ESTILOS GENERALES ===== */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -9,16 +7,14 @@
 
 body {
   font-family: "Poppins", sans-serif;
-  background-color: #ffffff; /* Fondo blanco */
+  background-color: #ffffff;
   color: #222;
   display: flex;
   min-height: 100vh;
   overflow: hidden;
 }
 
-/* ================================
-   MENÚ LATERAL IZQUIERDO
-================================ */
+/* ===== MENÚ LATERAL ===== */
 .sidebar {
   width: 220px;
   background-color: #ffffff;
@@ -62,9 +58,7 @@ nav a:hover {
   color: #0077b6;
 }
 
-/* ================================
-   CONTENIDO PRINCIPAL (IFRAME)
-================================ */
+/* ===== CONTENIDO PRINCIPAL ===== */
 .contenido {
   margin-left: 220px;
   width: calc(100% - 220px);
@@ -82,62 +76,69 @@ iframe {
   transition: opacity 0.4s ease;
 }
 
-/* Animación suave al cambiar el contenido */
-iframe.fade-out {
-  opacity: 0;
+/* ===== GALERÍA ===== */
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: auto;
 }
 
-/* ================================
-   ESTILO PARA LAS PÁGINAS FOTO
-================================ */
-.foto {
-  width: 400px;
-  height: 300px;
-  background-color: #f2f2f2;
-  border: 2px dashed #0077b6;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: 600;
-  color: #0077b6;
-  margin: 3rem auto;
-  font-size: 1.2rem;
+.foto-item {
+  overflow: hidden;
   border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* ================================
-   SCROLL Y DETALLES VISUALES
-================================ */
-::-webkit-scrollbar {
-  width: 8px;
+.foto-item:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
 }
 
-::-webkit-scrollbar-thumb {
-  background-color: #ccc;
-  border-radius: 4px;
+.foto-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.4s ease;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background-color: #999;
+.foto-item:hover img {
+  transform: scale(1.05);
 }
 
-/* ================================
-   RESPONSIVE (base para el futuro)
-================================ */
-@media (max-width: 768px) {
+/* ===== RESPONSIVE ===== */
+@media (max-width: 992px) {
+  .galeria { grid-template-columns: repeat(2, 1fr); }
+  .sidebar { width: 180px; padding: 1.5rem 1rem; }
+  .contenido { margin-left: 180px; width: calc(100% - 180px); }
+}
+
+@media (max-width: 600px) {
+  body { flex-direction: column; }
   .sidebar {
-    width: 180px;
-    padding: 1.5rem 1rem;
+    width: 100%;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid #eee;
+    padding: 1rem;
   }
-
+  .logo { margin-bottom: 0.5rem; text-align: left; }
+  nav ul {
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 1rem;
+  }
   .contenido {
-    margin-left: 180px;
-    width: calc(100% - 180px);
+    margin-left: 0;
+    width: 100%;
+    height: calc(100vh - 80px);
   }
-
-  .foto {
-    width: 300px;
-    height: 220px;
-    font-size: 1rem;
+  .galeria {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    padding: 1rem;
   }
 }
