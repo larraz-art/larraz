@@ -15,7 +15,7 @@ fetch("logo.json")
 // Cargar secciones del repositorio
 async function cargarSecciones() {
   try {
-    const response = await fetch("https://api.github.com/repos/tu-usuario/tu-usuario.github.io/contents/secciones");
+    const response = await fetch("https://api.github.com/repos/larraz-art/larraz-art.github.io/contents/secciones");
     const files = await response.json();
 
     files.forEach(file => {
